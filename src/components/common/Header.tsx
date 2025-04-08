@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import ConnectBtn from '../connectBtn'
+import { navData } from '@/configs/index'
 
 const Header = () => {
 
@@ -18,17 +19,17 @@ const Header = () => {
         <div className='w-1/4'>logo</div>
         <div className='w-2/4 hidden md:flex justify-center'>
           <div className="flex items-center space-x-12">
-            {['Home', 'MarketPlace', 'Staking', 'Dex', 'Faucet'].map((item, index) => (
+            {navData.map((item, index) => (
               <motion.div
-                key={item}
+                key={index}
                 className="relative"
                 onHoverStart={() => setHoverIndex(index)}
                 onHoverEnd={() => setHoverIndex(null)}
               >
                 <Link
-                  href={`/${item.toLowerCase()}`}
+                  href={`/${item.path}`}
                 >
-                  {item}
+                  {item.name}
                   <motion.div
                     className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-purple-500 to-primary rounded-full"
                     initial={{ scaleX: 0 }}
