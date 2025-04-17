@@ -27,7 +27,7 @@ const Header = () => {
                 onHoverEnd={() => setHoverIndex(null)}
               >
                 <Link
-                  href={`/${item.path}`}
+                  href={item.path}
                 >
                   {item.name}
                   <motion.div

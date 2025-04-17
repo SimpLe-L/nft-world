@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import WagmiConfigProvider from "@/context/wagmi";
+import Header from "@/components/common/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +30,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
       >
         <WagmiConfigProvider>
-          {children}
+          <Header />
+          <main className="h-screen">
+            {children}
+          </main>
         </WagmiConfigProvider>
       </body>
     </html>
